@@ -3,36 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARWebアプリ</title>
-    <style>
-        /* スタイルをここに追加 */
-    </style>
+    <title>剣とロケット</title>
 </head>
 <body>
-    <h1>項目をタップしてARWebアプリを起動</h1>
-    <ul>
-        <li id="rocket">ロケット</li>
-        <li id="sword">剣</li>
-    </ul>
+    <h1>剣とロケット</h1>
+    <p>
+        <a href="index.html" style="text-decoration: none; color: blue; cursor: pointer;" onclick="openIndex()">剣</a>
+    </p>
+    <p>
+        <a href="index.html" style="text-decoration: none; color: red; cursor: pointer;" onclick="openIndex()">ロケット</a>
+    </p>
 
     <script>
-        document.getElementById("rocket").addEventListener("click", function() {
-            launchARApp("rocket");
-        });
-
-        document.getElementById("sword").addEventListener("click", function() {
-            launchARApp("sword");
-        });
-
-        function launchARApp(item) {
-            // アプリケーション起動のためのコードをここに追加
-            if (item === "rocket") {
-                // ロケット用のアプリケーションを起動する
-                window.location.href = "launch_rocket_app.html";
-            } else if (item === "sword") {
-                // 剣用のアプリケーションを起動する
-                window.location.href = "launch_sword_app.html";
-            }
+        function openIndex() {
+            // index.htmlを新しいタブで開く
+            window.open("index.html", "_blank");
         }
     </script>
 </body>
