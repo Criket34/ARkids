@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARWebアプリ</title>
+    <style>
+        /* スタイルをここに追加 */
+    </style>
+</head>
+<body>
+    <h1>項目をタップしてARWebアプリを起動</h1>
+    <ul>
+        <li id="rocket">ロケット</li>
+        <li id="sword">剣</li>
+    </ul>
+
+    <script>
+        document.getElementById("rocket").addEventListener("click", function() {
+            launchARApp("rocket");
+        });
+
+        document.getElementById("sword").addEventListener("click", function() {
+            launchARApp("sword");
+        });
+
+        function launchARApp(item) {
+            // アプリケーション起動のためのコードをここに追加
+            if (item === "rocket") {
+                // ロケット用のアプリケーションを起動する
+                window.location.href = "launch_rocket_app.html";
+            } else if (item === "sword") {
+                // 剣用のアプリケーションを起動する
+                window.location.href = "launch_sword_app.html";
+            }
+        }
+    </script>
+</body>
+</html>
