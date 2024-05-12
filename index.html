@@ -22,28 +22,29 @@
       <a-asset-item id="sword-mtl" src="sword.mtl"></a-asset-item>     <!-- 剣のmtlファイル -->
     </a-assets>
    
-    <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
-    <a-marker preset="hiro">
-      <!-- マーカーの場所にロケットを置く -->
-      <a-obj-model
-        src="#rocket-obj"
-        mtl="#rocket-mtl"
-        scale="0.005 0.005 0.005"
-        position="0 0.5 0"
-        animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-      </a-obj-model>
-    </a-marker>
-   
-    <!-- マーカーを登録（プリセットされている「人」マーカー） -->
-    <a-marker preset="kanji">
+    <!-- マーカーを登録 -->
+    <a-marker type="pattern" url="pattern-sword.patt">
       <!-- マーカーの場所に剣を置く -->
-      <a-obj-model
-        src="#sword-obj"
-        mtl="#sword-mtl"
-        scale="0.005 0.005 0.005"
-        position="0 0.5 0"
-        animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-      </a-obj-model>
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#sword-obj"
+          mtl="#sword-mtl"
+          scale="0.005 0.005 0.005"
+          animation="property:rotation; to:0 360 0; dur:3000; easing:linear; loop:true;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <a-marker type="pattern" url="pattern-rocket.patt">
+      <!-- マーカーの場所にロケットを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#rocket-obj"
+          mtl="#rocket-mtl"
+          scale="0.005 0.005 0.005"
+          animation="property:rotation; to:0 360 0; dur:3000; easing:linear; loop:true;">
+        </a-obj-model>
+      </a-entity>
     </a-marker>
    
     <!-- AR用のカメラを置く -->
