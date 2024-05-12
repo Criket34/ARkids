@@ -37,6 +37,18 @@
         animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
       </a-obj-model>
     </a-marker>
+
+    <!-- マーカーを登録（カスタムパターンのswordマーカー） -->
+    <a-marker type="pattern" url="pattern-sword.patt">
+      <!-- マーカーの場所に OBJ 形式の sword オブジェクトを置く -->
+      <a-obj-model
+        src="#obj"
+        mtl="#mtl"
+        scale="0.005 0.005 0.005"
+        position="0 0.5 0"
+        animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
+      </a-obj-model>
+    </a-marker>
    
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
