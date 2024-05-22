@@ -20,6 +20,10 @@
       <a-asset-item id="rocket-mtl" src="rocket.mtl"></a-asset-item>   <!-- ロケットのmtlファイル -->
       <a-asset-item id="sword-obj" src="sword.obj"></a-asset-item>     <!-- 剣のobjファイル -->
       <a-asset-item id="sword-mtl" src="sword.mtl"></a-asset-item>     <!-- 剣のmtlファイル -->
+      <a-asset-item id="crown-obj" src="crown.obj"></a-asset-item>     <!-- クラウンのobjファイル -->
+      <a-asset-item id="crown-mtl" src="crown.mtl"></a-asset-item>     <!-- クラウンのmtlファイル -->
+      <a-asset-item id="ring-obj" src="ring.obj"></a-asset-item>       <!-- リングのobjファイル -->
+      <a-asset-item id="ring-mtl" src="ring.mtl"></a-asset-item>       <!-- リングのmtlファイル -->
     </a-assets>
  
     <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
@@ -52,14 +56,44 @@
           mtl="#sword-mtl"
           scale="0.02 0.02 0.02"  <!-- スケールを調整 -->
           position="0 0 0"
-          rotation="0 0 180"       <!-- 向きを正面に設定 -->
+          rotation="90 0 0"       <!-- 向きを正面に設定 -->
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <!-- 新しいマーカーを登録（pattern-crown.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-crown.patt">
+      <!-- マーカーの場所にクラウンのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#crown-obj"
+          mtl="#crown-mtl"
+          scale="0.02 0.02 0.02"  <!-- スケールを調整 -->
+          position="0 0 0"
+          rotation="0 0 0"       <!-- 向きを正面に設定 -->
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <!-- 新しいマーカーを登録（pattern-ring.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-ring.patt">
+      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#ring-obj"
+          mtl="#ring-mtl"
+          scale="0.02 0.02 0.02"  <!-- スケールを調整 -->
+          position="0 0 0"
+          rotation="0 0 0"       <!-- 向きを正面に設定 -->
           material="opacity: 1; transparent: false;">
         </a-obj-model>
       </a-entity>
     </a-marker>
  
     <!-- AR用のカメラを置く -->
-  <a-entity camera></a-entity>
+    <a-entity camera></a-entity>
  
   </a-scene>
  
