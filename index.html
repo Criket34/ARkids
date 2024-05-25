@@ -10,81 +10,92 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- AR.js ライブラリの読み込み -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
   
   <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
   <a-scene embedded arjs="debugUIEnabled:false;">
  
     <!-- OBJ形式のCGモデルの読み込み -->
     <a-assets>
-      <a-asset-item id="obj" src="rocket.obj"></a-asset-item>   <!-- objファイル -->
-      <a-asset-item id="mtl" src="rocket.mtl"></a-asset-item>   <!-- mtlファイル -->
-      <a-asset-item id="obj" src="sword.obj"></a-asset-item>
-      <a-asset-item id="mtl" src="sword.mtl"></a-asset-item>
-      <a-asset-item id="obj" src="ring.obj"></a-asset-item>
-      <a-asset-item id="mtl" src="ring.mtl"></a-asset-item>
-      <a-asset-item id="obj" src="crown.obj"></a-asset-item>
-      <a-asset-item id="mtl" src="crown.mtl"></a-asset-item>
+      <a-asset-item id="rocket-obj" src="rocket.obj"></a-asset-item>   <!-- ロケットのobjファイル -->
+      <a-asset-item id="rocket-mtl" src="rocket.mtl"></a-asset-item>   <!-- ロケットのmtlファイル -->
+      <a-asset-item id="sword-obj" src="sword.obj"></a-asset-item>     <!-- 剣のobjファイル -->
+      <a-asset-item id="sword-mtl" src="sword.mtl"></a-asset-item>     <!-- 剣のmtlファイル -->
+      <a-asset-item id="crown-obj" src="crown.obj"></a-asset-item>     <!-- クラウンのobjファイル -->
+      <a-asset-item id="crown-mtl" src="crown.mtl"></a-asset-item>     <!-- クラウンのmtlファイル -->
+      <a-asset-item id="ring-obj" src="ring.obj"></a-asset-item>       <!-- リングのobjファイル -->
+      <a-asset-item id="ring-mtl" src="ring.mtl"></a-asset-item>       <!-- リングのmtlファイル -->
     </a-assets>
-   
+ 
     <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
     <a-marker preset="hiro">
       <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
       <a-box position="0 0.5 0" wireframe="true"></a-box>
     </a-marker>
-   
-    <!-- マーカーを登録（プリセットされている「人」マーカー） -->
+ 
+    <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
     <a-marker preset="kanji">
-      <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-      <a-obj-model
-        src="#obj"
-        mtl="#mtl"
-        scale="0.005 0.005 0.005"
-        position="0 0.5 0"
-        animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-      </a-obj-model>
+      <!-- マーカーの場所にロケットのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#rocket-obj"
+          mtl="#rocket-mtl"
+          scale="0.02 0.02 0.02"  
+          position="0 0 0"
+          rotation="0 0 0"
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
     </a-marker>
 
-       <a-marker type="pattern" url="pattern-sword.patt">
-      <!-- マーカーの場所に剣を置く -->
+    <!-- 新しいマーカーを登録（pattern-sword.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-sword.patt">
+      <!-- マーカーの場所に剣のOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
           src="#sword-obj"
           mtl="#sword-mtl"
-          scale="0.005 0.005 0.005"
-          animation="property:rotation; to:0 360 0; dur:3000; easing:linear; loop:true;">
+          scale="0.02 0.02 0.02"  
+          position="0 0 0"
+          rotation="90 0 0"       
+          material="opacity: 1; transparent: false;">
         </a-obj-model>
       </a-entity>
     </a-marker>
 
-        <a-marker type="pattern" url="pattern-ring.patt">
-      <!-- マーカーの場所に剣を置く -->
+    <!-- 新しいマーカーを登録（pattern-crown.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-crown.patt">
+      <!-- マーカーの場所にクラウンのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#crown-obj"
+          mtl="#crown-mtl"
+
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <!-- 新しいマーカーを登録（pattern-ring.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-ring.patt">
+      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
           src="#ring-obj"
           mtl="#ring-mtl"
-          scale="0.005 0.005 0.005"
-          animation="property:rotation; to:0 360 0; dur:3000; easing:linear; loop:true;">
+
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
         </a-obj-model>
       </a-entity>
     </a-marker>
-
-    <a-marker type="pattern" url="pattern-crown.patt">
-        <!-- マーカーの場所に剣を置く -->
-        <a-entity position="0 0 0">
-          <a-obj-model
-            src="#crown-obj"
-            mtl="#crown-mtl"
-            scale="0.005 0.005 0.005"
-            animation="property:rotation; to:0 360 0; dur:3000; easing:linear; loop:true;">
-          </a-obj-model>
-        </a-entity>
-      </a-marker>
-
+ 
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
-   
+ 
   </a-scene>
-
+ 
 </body>
 </html>
