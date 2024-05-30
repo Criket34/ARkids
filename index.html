@@ -69,7 +69,7 @@
         <a-obj-model
           src="#crown-obj"
           mtl="#crown-mtl"
-
+          scale="0.1 0.1 0.1"  <!-- スケールを大きめに調整 -->
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -84,7 +84,7 @@
         <a-obj-model
           src="#ring-obj"
           mtl="#ring-mtl"
-
+          scale="0.02 0.02 0.02"  <!-- 必要に応じてスケールを調整 -->
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -96,6 +96,13 @@
     <a-entity camera></a-entity>
  
   </a-scene>
+
+  <!-- コンソールにエラーがないか確認 -->
+  <script>
+    window.addEventListener('error', function(event) {
+      console.error('Error:', event.message, 'at', event.filename, 'line', event.lineno);
+    });
+  </script>
  
 </body>
 </html>
