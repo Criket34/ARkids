@@ -48,7 +48,7 @@
     </a-marker>
 
     <!-- 新しいマーカーを登録（pattern-sword.patt マーカー） -->
-    <a-marker type="pattern" url="pattern-sword.patt">
+    <a-marker type="pattern" url="pattern-sword.patt" id="sword-marker">
       <!-- マーカーの場所に剣のOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
@@ -69,9 +69,9 @@
         <a-obj-model
           src="#crown-obj"
           mtl="#crown-mtl"
-          scale="0.2 0.2 0.2"  <!-- スケールを大きめに調整 -->
+          scale="0.02 0.02 0.02"  <!-- スケールを設定 -->
           position="0 0 0"
-          rotation="90 90 0"       
+          rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
         </a-obj-model>
       </a-entity>
@@ -84,7 +84,7 @@
         <a-obj-model
           src="#ring-obj"
           mtl="#ring-mtl"
-          scale="0.02 0.02 0.02"  <!-- 必要に応じてスケールを調整 -->
+          scale="0.02 0.02 0.02"  <!-- スケールを設定 -->
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -92,17 +92,26 @@
       </a-entity>
     </a-marker>
  
+    <!-- 画面上部に小さく表示される剣のオブジェクト -->
+    <a-entity id="mini-sword" position="0 1.5 -2" scale="0.005 0.005 0.005" visible="false">
+      <a-obj-model
+        src="#sword-obj"
+        mtl="#sword-mtl"
+        rotation="90 0 0"
+        material="opacity: 1; transparent: false;">
+      </a-obj-model>
+    </a-entity>
+ 
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
  
   </a-scene>
 
-  <!-- コンソールにエラーがないか確認 -->
   <script>
-    window.addEventListener('error', function(event) {
-      console.error('Error:', event.message, 'at', event.filename, 'line', event.lineno);
+    // swordマーカーの検出後に、mini-swordオブジェクトを表示する
+    document.querySelector("#sword-marker").addEventListener("markerFound", function() {
+      document.querySelector("#mini-sword").setAttribute("visible", "true");
     });
   </script>
- 
 </body>
 </html>
