@@ -92,12 +92,12 @@
       </a-entity>
     </a-marker>
  
-    <!-- 画面中央に表示される剣のオブジェクト -->
-    <a-entity id="mini-sword" position="0 1 -2" scale="0.02 0.02 0.02" visible="true">
+    <!-- 画面上部に小さく表示される剣のオブジェクト -->
+    <a-entity id="mini-sword" position="0 1.5 -2" scale="0.02 0.02 0.02" visible="false">
       <a-obj-model
         src="#sword-obj"
         mtl="#sword-mtl"
-        rotation="0 90 0"  <!-- Y軸を90度回転 -->
+        rotation="90 0 0"
         material="opacity: 1; transparent: false;">
       </a-obj-model>
     </a-entity>
@@ -106,5 +106,12 @@
     <a-entity camera></a-entity>
  
   </a-scene>
+
+  <script>
+    // swordマーカーの検出後に、mini-swordオブジェクトを表示する
+    document.querySelector("#sword-marker").addEventListener("markerFound", function() {
+      document.querySelector("#mini-sword").setAttribute("visible", "true");
+    });
+  </script>
 </body>
 </html>
