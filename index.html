@@ -50,7 +50,7 @@
     <!-- 新しいマーカーを登録（pattern-sword.patt マーカー） -->
     <a-marker type="pattern" url="pattern-sword.patt" id="sword-marker">
       <!-- マーカーの場所に剣のOBJ形式の3Dオブジェクトを置く -->
-      <a-entity id="sword-entity" position="0 0 0">
+      <a-entity position="0 0 0">
         <a-obj-model
           src="#sword-obj"
           mtl="#sword-mtl"
@@ -91,28 +91,22 @@
         </a-obj-model>
       </a-entity>
     </a-marker>
-
+ 
+    <!-- 画面上部に小さく表示される剣のオブジェクト -->
+    <a-entity id="mini-sword" position="0 1.5 -2" scale="0.005 0.005 0.005" visible="false">
+      <a-obj-model
+        src="#sword-obj"
+        mtl="#sword-mtl"
+        rotation="90 0 0"
+        material="opacity: 1; transparent: false;">
+      </a-obj-model>
+    </a-entity>
+ 
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
  
   </a-scene>
 
-  <script>
-    // 剣のマーカーが一度検出された後、常に表示する
-    let swordVisible = false;
-    document.querySelector("#sword-marker").addEventListener("markerFound", function() {
-      if (!swordVisible) {
-        swordVisible = true;
-        document.querySelector("#sword-entity").setAttribute("visible", "true");
-      }
-    });
 
-    // 剣のマーカーが見えなくなっても、剣のオブジェクトを表示したままにする
-    document.querySelector("#sword-marker").addEventListener("markerLost", function() {
-      if (swordVisible) {
-        document.querySelector("#sword-entity").setAttribute("visible", "true");
-      }
-    });
-  </script>
 </body>
 </html>
