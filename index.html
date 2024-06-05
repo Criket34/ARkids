@@ -24,6 +24,10 @@
       <a-asset-item id="crown-mtl" src="crown.mtl"></a-asset-item>     <!-- クラウンのmtlファイル -->
       <a-asset-item id="ring-obj" src="ring.obj"></a-asset-item>       <!-- リングのobjファイル -->
       <a-asset-item id="ring-mtl" src="ring.mtl"></a-asset-item>       <!-- リングのmtlファイル -->
+      <a-asset-item id="redcube-obj" src="redcube.obj"></a-asset-item>       <!-- 赤い立方体のobjファイル -->
+      <a-asset-item id="redcube-mtl" src="redcube.mtl"></a-asset-item>       <!-- 赤い立方体のmtlファイル -->
+      <a-asset-item id="bluecube-obj" src="bluecube.obj"></a-asset-item>       <!-- 青い立方体のobjファイル -->
+      <a-asset-item id="bluecube-mtl" src="bluecube.mtl"></a-asset-item>       <!-- 青い立方体のmtlファイル -->
     </a-assets>
  
     <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
@@ -91,16 +95,36 @@
         </a-obj-model>
       </a-entity>
     </a-marker>
- 
-    <!-- 画面上部に小さく表示される剣のオブジェクト -->
-    <a-entity id="mini-sword" position="0 1.5 -2" scale="0.005 0.005 0.005" visible="false">
-      <a-obj-model
-        src="#sword-obj"
-        mtl="#sword-mtl"
-        rotation="90 0 0"
-        material="opacity: 1; transparent: false;">
-      </a-obj-model>
-    </a-entity>
+
+    <!-- 新しいマーカーを登録（pattern-canred.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-canred.patt">
+      <!-- マーカーの場所に赤い立方体のOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#redcube-obj"
+          mtl="#redcube-mtl"
+          scale="0.02 0.02 0.02"  
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <!-- 新しいマーカーを登録（pattern-canblue.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-canblue.patt">
+      <!-- マーカーの場所に青い立方体のOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#bluecube-obj"
+          mtl="#bluecube-mtl"
+          scale="0.02 0.02 0.02"  
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
  
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
