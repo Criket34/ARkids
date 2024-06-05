@@ -54,7 +54,7 @@
         <a-obj-model
           src="#sword-obj"
           mtl="#sword-mtl"
-          scale="0.2 0.2 0.2"  
+          scale="0.5 0.5 0.5"  
           position="0 0 0"
           rotation="90 0 0"       
           material="opacity: 1; transparent: false;">
@@ -91,6 +91,35 @@
         </a-obj-model>
       </a-entity>
     </a-marker>
+
+        <a-marker type="pattern" url="pattern-canred.patt">
+      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#canred-obj"
+          mtl="#canred-mtl"
+          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+    <a-marker type="pattern" url="pattern-canblue.patt">
+      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#canblue-obj"
+          mtl="#canblue-mtl"
+          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+    
  
     <!-- AR用のカメラを置く -->
     <a-entity camera></a-entity>
