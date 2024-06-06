@@ -4,16 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A-Frame で超簡単 AR</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+</style>
 </head>
-<body style="margin:0px; overflow:hidden;">
+<body>
   <!-- A-Frame ライブラリの読み込み -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- AR.js ライブラリの読み込み -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   
   <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-<!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-<a-scene embedded arjs="debugUIEnabled:false;">
+  <a-scene embedded arjs="debugUIEnabled:false;" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
  
     <!-- OBJ形式のCGモデルの読み込み -->
     <a-assets>
@@ -31,32 +39,35 @@
       <a-asset-item id="canblue-mtl" src="canblue.mtl"></a-asset-item>  
     </a-assets>
  
-  <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
-  <a-marker preset="hiro">
-    <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
-  </a-marker>
+    <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
+    <a-marker preset="hiro">
+      <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
+      <a-box position="0 0.5 0" wireframe="true"></a-box>
+    </a-marker>
  
-  <!-- マーカーを登録（プリセットされている「人」マーカー） -->
-  <a-marker preset="kanji">
-    <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-    <a-obj-model
-      src="#obj"
-      mtl="#mtl"
-      scale="0.005 0.005 0.005"
-      position="0 0.5 0"
-      animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-    </a-obj-model>
-  </a-marker>
+    <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
+    <a-marker preset="kanji">
+      <!-- マーカーの場所にロケットのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#rocket-obj"
+          mtl="#rocket-mtl"
+          scale="0.02 0.02 0.02"  
+          position="0 0 0"
+          rotation="0 0 0"
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
 
-      <!-- 新しいマーカーを登録（pattern-sword.patt マーカー） -->
+    <!-- 新しいマーカーを登録（pattern-sword.patt マーカー） -->
     <a-marker type="pattern" url="pattern-sword.patt">
       <!-- マーカーの場所に剣のOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
           src="#sword-obj"
           mtl="#sword-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="90 0 0"       
           material="opacity: 1; transparent: false;">
@@ -71,7 +82,7 @@
         <a-obj-model
           src="#crown-obj"
           mtl="#crown-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -86,7 +97,7 @@
         <a-obj-model
           src="#ring-obj"
           mtl="#ring-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -101,7 +112,7 @@
         <a-obj-model
           src="#canred-obj"
           mtl="#canred-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -116,18 +127,19 @@
         <a-obj-model
           src="#canblue-obj"
           mtl="#canblue-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
         </a-obj-model>
       </a-entity>
     </a-marker>
+    
  
-  <!-- AR用のカメラを置く -->
-  <a-entity camera></a-entity>
+    <!-- AR用のカメラを置く -->
+    <a-entity camera></a-entity>
  
-</a-scene>
+  </a-scene>
  
 </body>
 </html>
