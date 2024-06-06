@@ -4,15 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A-Frame で超簡単 AR</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+</style>
 </head>
-<body style="margin:0px; overflow:hidden;">
+<body>
   <!-- A-Frame ライブラリの読み込み -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- AR.js ライブラリの読み込み -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   
   <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
-  <a-scene embedded arjs="debugUIEnabled:false;">
+  <a-scene embedded arjs="debugUIEnabled:false;" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
  
     <!-- OBJ形式のCGモデルの読み込み -->
     <a-assets>
@@ -24,9 +33,9 @@
       <a-asset-item id="crown-mtl" src="crown.mtl"></a-asset-item>     <!-- クラウンのmtlファイル -->
       <a-asset-item id="ring-obj" src="ring.obj"></a-asset-item>       <!-- リングのobjファイル -->
       <a-asset-item id="ring-mtl" src="ring.mtl"></a-asset-item>       <!-- リングのmtlファイル -->
-      <a-asset-item id="canred-obj" src="canred.obj"></a-asset-item>       <!-- リングのobjファイル -->
+      <a-asset-item id="canred-obj" src="canred.obj"></a-asset-item>       <!-- canredのobjファイル -->
       <a-asset-item id="canred-mtl" src="canred.mtl"></a-asset-item>  
-      <a-asset-item id="canblue-obj" src="canblue.obj"></a-asset-item>       <!-- リングのobjファイル -->
+      <a-asset-item id="canblue-obj" src="canblue.obj"></a-asset-item>       <!-- canblueのobjファイル -->
       <a-asset-item id="canblue-mtl" src="canblue.mtl"></a-asset-item>  
     </a-assets>
  
@@ -58,7 +67,7 @@
         <a-obj-model
           src="#sword-obj"
           mtl="#sword-mtl"
-          scale="0.5 0.5 0.5"  
+          scale="1 1 1"  
           position="0 0 0"
           rotation="90 0 0"       
           material="opacity: 1; transparent: false;">
@@ -73,7 +82,7 @@
         <a-obj-model
           src="#crown-obj"
           mtl="#crown-mtl"
-          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -88,7 +97,7 @@
         <a-obj-model
           src="#ring-obj"
           mtl="#ring-mtl"
-          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -96,13 +105,14 @@
       </a-entity>
     </a-marker>
 
-        <a-marker type="pattern" url="pattern-canred.patt">
-      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
+    <!-- 新しいマーカーを登録（pattern-canred.patt マーカー） -->
+    <a-marker type="pattern" url="pattern-canred.patt">
+      <!-- マーカーの場所にcanredのOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
           src="#canred-obj"
           mtl="#canred-mtl"
-          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
@@ -110,13 +120,14 @@
       </a-entity>
     </a-marker>
 
+    <!-- 新しいマーカーを登録（pattern-canblue.patt マーカー） -->
     <a-marker type="pattern" url="pattern-canblue.patt">
-      <!-- マーカーの場所にリングのOBJ形式の3Dオブジェクトを置く -->
+      <!-- マーカーの場所にcanblueのOBJ形式の3Dオブジェクトを置く -->
       <a-entity position="0 0 0">
         <a-obj-model
           src="#canblue-obj"
           mtl="#canblue-mtl"
-          scale="0.2 0.2 0.2"  <!-- スケールを設定 -->
+          scale="1 1 1"  
           position="0 0 0"
           rotation="0 0 0"       
           material="opacity: 1; transparent: false;">
