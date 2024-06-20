@@ -36,7 +36,13 @@
       <a-asset-item id="canred-obj" src="canred.obj"></a-asset-item>       <!-- canredのobjファイル -->
       <a-asset-item id="canred-mtl" src="canred.mtl"></a-asset-item>  
       <a-asset-item id="canblue-obj" src="canblue.obj"></a-asset-item>       <!-- canblueのobjファイル -->
-      <a-asset-item id="canblue-mtl" src="canblue.mtl"></a-asset-item>  
+      <a-asset-item id="canblue-mtl" src="canblue.mtl"></a-asset-item> 
+      <a-asset-item id="ha-obj" src="ha.obj"></a-asset-item>
+      <a-asset-item id="ha-mtl" src="ha.mtl"></a-asset-item>
+       <a-asset-item id="se-obj" src="se.obj"></a-asset-item>
+      <a-asset-item id="se-mtl" src="se.mtl"></a-asset-item>
+       <a-asset-item id="ken-obj" src="se.obj"></a-asset-item>
+      <a-asset-item id="ken-mtl" src="se.mtl"></a-asset-item>
     </a-assets>
  
     <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
@@ -127,6 +133,48 @@
         <a-obj-model
           src="#canblue-obj"
           mtl="#canblue-mtl"
+          scale="0.3 0.3 0.3"  
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+        <a-marker type="pattern" url="pattern-ha.patt">
+      <!-- マーカーの場所にcanblueのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#ha-obj"
+          mtl="#ha-mtl"
+          scale="0.3 0.3 0.3"  
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+            <a-marker type="pattern" url="pattern-se.patt">
+      <!-- マーカーの場所にcanblueのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#se-obj"
+          mtl="#se-mtl"
+          scale="0.3 0.3 0.3"  
+          position="0 0 0"
+          rotation="0 0 0"       
+          material="opacity: 1; transparent: false;">
+        </a-obj-model>
+      </a-entity>
+    </a-marker>
+
+            <a-marker type="pattern" url="pattern-ken.patt">
+      <!-- マーカーの場所にcanblueのOBJ形式の3Dオブジェクトを置く -->
+      <a-entity position="0 0 0">
+        <a-obj-model
+          src="#ken-obj"
+          mtl="#ken-mtl"
           scale="0.3 0.3 0.3"  
           position="0 0 0"
           rotation="0 0 0"       
